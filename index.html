@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Jimmuses" content="Atelier de Joyas" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="assets/logo-JM.ico" type="icon" />
+    <script src="index.js" defer></script>
+
+    <title>Tienda de Joyas</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+  </head>
+  <body>
+    <div class="notification-bar">
+      Envios gratis en pedidos <span class="plus">+</span>150<span class="euros"
+        >€</span
+      >
+    </div>
+    <header id="pricipal_header" class="flex-container common-padding">
+      <div class="search-container">
+        <img
+          src="assets/simbolo-de-la-interfaz-de-busqueda.png"
+          alt="Buscar"
+          class="search-icon"
+        />
+        <input type="text" class="search-input" placeholder="Buscar..." />
+      </div>
+
+      <div class="icon-container">
+        <a href="https://www.instagram.com/jimmuses/"
+          ><img
+            src="assets/anadir-al-carrito.png"
+            alt="carrito compra"
+            class="icon-cart"
+        /></a>
+        <img src="assets/acceso.png" alt="Iniciar sesion" class="icon-login" />
+      </div>
+
+      <h1 class="logo">JIMMUSES</h1>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a href="#">INICIO</a></li>
+          <li><a href="#">SHOP</a></li>
+          <li><a href="#">WEDDING EDITION</a></li>
+          <li><a href="#">JOURNAL</a></li>
+          <li><a href="#">CONTACT</a></li>
+          <li><a href="#">ABOUT</a></li>
+        </ul>
+      </nav>
+      <figure class="hero-content">
+        <img
+          src="assets/0C9EC677-53AA-4364-A3A2-D0B0E06B4A8F.JPG"
+          alt="Joyas de Jimmuses"
+          class="foto-joyas"
+        />
+        <figcaption>
+          Encuentra tu joya perfecto gracias a nuestros filtros
+        </figcaption>
+      </figure>
+      <div><button id="open-modal">Filtrar Productos</button></div>
+    </header>
+  </body>
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__section footer__section--contact">
+        <h4 class="footer__section-title">Contacto</h4>
+        <ul class="footer__list footer__list--contact">
+          <li class="footer__list-item">
+            <a href="#">atelierdejoyas@jimmuses.com</a>
+          </li>
+
+          <li class="footer__list-item">
+            <a href="#">WhatsApp: 0034 672 281 816</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__section footer__section--about">
+        <h4 class="footer__section-title">Sobre Jimmuses</h4>
+        <p class="footer__text">
+          Jimmuses son joyas por y para musas. <br />
+          Cada joya es única y está hecha a mano.
+        </p>
+      </div>
+
+      <div class="footer__section footer__section--info">
+        <h4 class="footer__section-title">Informacion</h4>
+        <ul class="footer__list footer__list--info">
+          <li class="footer__list-item"></li>
+          <a href="#">FAQ</a>
+          <li class="footer__list-item">
+            <a href="#">Envios y devoluciones</a>
+          </li>
+          <li class="footer__list-item"><a href="#">Guia de tallas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__section footer__section--social">
+        <h4 class="footer__section-title">Redes sociales</h4>
+        <ul class="footer__list footer__list--social">
+          <li class="footer__list-item">
+            <a href="https://www.instagram.com/jimmuses/" class="footer__link"
+              >Instagram</a
+            >
+          </li>
+          <li class="footer__list-item">
+            <a href="https://www.facebook.com/jimmuses0" class="footer__link"
+              >Facebook</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</html>
