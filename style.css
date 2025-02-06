@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Altera';
-  src: url('assets/altera/Altera.ttf') format('truetype');
+  src: url('assets/altera (1)/Altera.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -166,6 +166,14 @@ body {
   height: 20px;
   cursor: pointer;
 }
+.filter-icon {
+  width: 17px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.filter-icon:hover {
+  transform: scale(1.1);
+}
 
 .search-input {
   display: none;
@@ -200,14 +208,6 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}
-
-.hero-content figcaption {
-  font-size: var(--jm-font-size-text);
-  color: var(--jm-color-black);
-  margin-top: 7px;
-  font-style: italic;
-  font-weight: bold;
 }
 
 .footer__container {

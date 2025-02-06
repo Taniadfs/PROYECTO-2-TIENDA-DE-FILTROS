@@ -3,9 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Jimmuses" content="Atelier de Joyas" />
+    <meta
+      name="description"
+      content="Jimmuses - Atelier de Joyas exclusivas y hechas a mano. Encuentra joyas únicas para mujeres elegantes. Envíos internacionales."
+    />
+
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="assets/logo-JM.ico" type="icon" />
+    <link rel="icon" href="assets/logo-JM.png" type="image/png" />
     <script src="index.js" defer></script>
 
     <title>Tienda de Joyas</title>
@@ -19,7 +23,7 @@
         >€</span
       >
     </div>
-    <header id="pricipal_header" class="flex-container common-padding">
+    <header id="principal_header" class="flex-container common-padding">
       <div class="search-container">
         <img
           src="assets/simbolo-de-la-interfaz-de-busqueda.png"
@@ -30,6 +34,13 @@
       </div>
 
       <div class="icon-container">
+        <img
+          src="assets/filtros.png"
+          id="open-modal"
+          alt="abrir-filtros"
+          class="filter-icon"
+        />
+
         <a href="https://www.instagram.com/jimmuses/"
           ><img
             src="assets/anadir-al-carrito.png"
@@ -60,63 +71,60 @@
           alt="Joyas de Jimmuses"
           class="foto-joyas"
         />
-        <figcaption>
-          Encuentra tu joya perfecto gracias a nuestros filtros
-        </figcaption>
       </figure>
-      <div><button id="open-modal">Filtrar Productos</button></div>
     </header>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__section footer__section--contact">
+          <h4 class="footer__section-title">Contacto</h4>
+          <ul class="footer__list footer__list--contact">
+            <li class="footer__list-item">
+              <a href="#">atelierdejoyas@jimmuses.com</a>
+            </li>
+
+            <li class="footer__list-item">
+              <a href="#">WhatsApp: 0034 672 281 816</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__section footer__section--about">
+          <h4 class="footer__section-title">Sobre Jimmuses</h4>
+          <p class="footer__text">
+            Jimmuses son joyas por y para musas. <br />
+            Cada joya es única y está hecha a mano.
+          </p>
+        </div>
+
+        <div class="footer__section footer__section--info">
+          <h4 class="footer__section-title">Informacion</h4>
+          <ul class="footer__list footer__list--info">
+            <li class="footer__list-item">
+              <a href="#">FAQ</a>
+            </li>
+            <li class="footer__list-item">
+              <a href="#">Envios y devoluciones</a>
+            </li>
+            <li class="footer__list-item"><a href="#">Guia de tallas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__section footer__section--social">
+          <h4 class="footer__section-title">Redes sociales</h4>
+          <ul class="footer__list footer__list--social">
+            <li class="footer__list-item">
+              <a href="https://www.instagram.com/jimmuses/" class="footer__link"
+                >Instagram</a
+              >
+            </li>
+            <li class="footer__list-item">
+              <a href="https://www.facebook.com/jimmuses0" class="footer__link"
+                >Facebook</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </body>
-  <footer class="footer">
-    <div class="footer__container">
-      <div class="footer__section footer__section--contact">
-        <h4 class="footer__section-title">Contacto</h4>
-        <ul class="footer__list footer__list--contact">
-          <li class="footer__list-item">
-            <a href="#">atelierdejoyas@jimmuses.com</a>
-          </li>
-
-          <li class="footer__list-item">
-            <a href="#">WhatsApp: 0034 672 281 816</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer__section footer__section--about">
-        <h4 class="footer__section-title">Sobre Jimmuses</h4>
-        <p class="footer__text">
-          Jimmuses son joyas por y para musas. <br />
-          Cada joya es única y está hecha a mano.
-        </p>
-      </div>
-
-      <div class="footer__section footer__section--info">
-        <h4 class="footer__section-title">Informacion</h4>
-        <ul class="footer__list footer__list--info">
-          <li class="footer__list-item"></li>
-          <a href="#">FAQ</a>
-          <li class="footer__list-item">
-            <a href="#">Envios y devoluciones</a>
-          </li>
-          <li class="footer__list-item"><a href="#">Guia de tallas</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__section footer__section--social">
-        <h4 class="footer__section-title">Redes sociales</h4>
-        <ul class="footer__list footer__list--social">
-          <li class="footer__list-item">
-            <a href="https://www.instagram.com/jimmuses/" class="footer__link"
-              >Instagram</a
-            >
-          </li>
-          <li class="footer__list-item">
-            <a href="https://www.facebook.com/jimmuses0" class="footer__link"
-              >Facebook</a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-  </footer>
 </html>
