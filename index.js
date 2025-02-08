@@ -12,6 +12,7 @@ function iniciarModal() {
         <span class='close'>&times;</span>
         <h2>Filtros</h2>
         <p>Selecciona un filtro</p>
+        <div id='filters-container'></div>
         <button id='apply-filters'>Aplicar</button>
     </div>
 `
@@ -39,4 +40,29 @@ function iniciarModal() {
       modal.style.display = 'none'
     }
   })
+
+  const filtros = [
+    {
+      id: 'categoría',
+      nombre: 'Categoría',
+      opciones: ['Anillos', 'Collares', 'Pendientes', 'Pulsera']
+    },
+    {
+      id: 'precio',
+      nombre: 'Rango de precio',
+      opciones: ['Menos de 50€', '50€ - 100€', 'Más de 100€']
+    },
+    {
+      id: 'material',
+      nombre: 'Material',
+      opciones: ['Oro', 'Plata', 'Bañado en Oro']
+    },
+    {
+      id: 'ocasión',
+      nombre: 'Ocasión',
+      opciones: ['Casual', 'Especial', 'Boda']
+    }
+  ]
+
+  function mostrarFiltros() {}
 }
