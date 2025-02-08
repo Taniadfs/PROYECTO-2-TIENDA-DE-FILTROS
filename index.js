@@ -3,11 +3,6 @@ function iniciarModal() {
   //VOY A OBTENER LA IMG QUE ABRIRA EL MODAL//
   const openModalButton = document.getElementById('open-modal')
 
-  if (!openModalButton) {
-    console.error("Error: No se encontró el botón con id 'open-modal'")
-    return
-  }
-
   //creo el modal dinamicamente//
   const modal = document.createElement('div')
   modal.id = 'filter-modal'
