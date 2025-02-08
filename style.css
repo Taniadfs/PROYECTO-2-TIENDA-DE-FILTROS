@@ -201,6 +201,49 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
+.modal-content .close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jm--gap-s);
+  margin-top: 10px;
+}
+
+.filter h3 {
+  font-size: var(--jm-font-size-text2);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.filter select {
+  width: 100%;
+  font-size: var(--jm-font-size-text);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#apply-filters {
+  margin-top: 15px;
+  color: var(--jm-color-white);
+  border: none;
+  padding: 15px;
+  font-size: var(--jm-font-size-h3);
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#apply-filters:hover {
+  background: #444;
+}
 /*FIN DEL CODIGO NUEVO DEL PROYECTO 2 */
 
 .search-input {
