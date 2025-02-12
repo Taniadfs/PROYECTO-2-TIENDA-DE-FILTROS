@@ -121,3 +121,114 @@ function mostrarFiltros() {
 
   console.log('✅ Filtros agregados al modal correctamente.')
 }
+
+const listaProductos = [
+  {
+    id: 1,
+    nombre: 'The tear',
+    categoria: 'Collares',
+    precio: 80,
+    material: 'Oro',
+    ocasion: 'Casual',
+    imagen: 'assets/IMG_8177.jpg'
+  },
+  {
+    id: 2,
+    nombre: 'Camille ring',
+    categoria: 'Anillos',
+    precio: 48,
+    material: 'Bañado en Oro',
+    ocasion: 'Casual',
+    imagen: 'assets/Cammille ring.jpg'
+  },
+  {
+    id: 3,
+    nombre: 'Collar Ova',
+    categoria: 'Collares',
+    precio: 90,
+    material: 'Plata',
+    ocasion: 'Especial',
+    imagen: 'assets/IMG_2996.jpg'
+  },
+  {
+    id: 4,
+    nombre: 'Esmeralda collar',
+    categoria: 'Collares',
+    precio: 130,
+    material: 'Oro',
+    ocasion: 'Boda',
+    imagen: 'assets/360C8667-D869-4A5F-A27A-4C747210B4A3.JPG'
+  },
+  {
+    id: 5,
+    nombre: 'Flat ring',
+    categoria: 'Anillos',
+    precio: 90,
+    material: 'Bañado en Oro',
+    ocasion: 'Casual',
+    imagen: 'assets/flat.jpg'
+  },
+
+  {
+    id: 6,
+    nombre: 'Camille ears',
+    categoria: 'Pendientes',
+    precio: 120,
+    material: 'Oro',
+    ocasion: 'Especial',
+    imagen: 'assets/IMG_0526.JPG'
+  },
+  {
+    id: 7,
+    nombre: 'The luck collar',
+    categoria: 'Bañado en Oro',
+    precio: 55,
+    material: 'Oro',
+    ocasion: 'Casual',
+    imagen: 'assets/Luck collar.jpg'
+  },
+  {
+    id: 8,
+    nombre: 'The ligth ring',
+    categoria: 'Anillos',
+    precio: 70,
+    material: 'Bañado en Oro',
+    ocasion: 'Especial',
+    imagen: 'assets/7BAB544C-1C76-4241-80D7-CB719BC79872.JPG'
+  }
+]
+
+let contenedorProductos = document.getElementById('productos-container')
+
+function pintarProductos(listaProductos) {
+  // ASEGURARSE QUE EL CONTENEDOR EXISTE
+  if (!contenedorProductos) {
+    console.error(
+      "❌ Error: No se encontró el contenedor de productos ('#productos-container')"
+    )
+    return
+  }
+
+  contenedorProductos.innerHTML = '' // LIMPIAR CONTENIDO ANTERIOR
+
+  listaProductos.forEach((producto) => {
+    const productoDiv = document.createElement('div')
+    productoDiv.classList.add('producto')
+
+    productoDiv.innerHTML = `
+      <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-img">
+      <h3>${producto.nombre}</h3>
+      <p><strong>Categoría:</strong> ${producto.categoria}</p>
+      <p><strong>Precio:</strong> ${producto.precio}€</p>
+      <p><strong>Material:</strong> ${producto.material}</p>
+      <p><strong>Ocasión:</strong> ${producto.ocasion}</p>
+    `
+
+    contenedorProductos.appendChild(productoDiv)
+  })
+
+  console.log('✅ Productos agregados correctamente.')
+}
+
+// MOSTRAR LOS PRODUCTOS AL INICIO
+pintarProductos(listaProductos)
