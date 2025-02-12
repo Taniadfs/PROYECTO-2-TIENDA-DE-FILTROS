@@ -64,7 +64,7 @@ const filtros = [
   {
     id: 'material',
     nombre: 'Material',
-    opciones: ['Oro', 'Plata', 'Bañado en Oro']
+    opciones: ['Oro', 'Plata', 'Banado en Oro']
   },
   {
     id: 'ocasion',
@@ -127,7 +127,7 @@ const listaProductos = [
     id: 1,
     nombre: 'The tear',
     categoria: 'Collares',
-    precio: 80,
+    precio: 100,
     material: 'Oro',
     ocasion: 'Casual',
     imagen: 'assets/IMG_8177.jpg'
@@ -217,11 +217,11 @@ function pintarProductos(listaProductos) {
 
     productoDiv.innerHTML = `
       <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-img">
-      <h3>${producto.nombre}</h3>
-      <p><strong>Categoría:</strong> ${producto.categoria}</p>
+      <h3 class="titulo-producto">${producto.nombre}</h3>
+      <p><strong>Categoria:</strong> ${producto.categoria}</p>
       <p><strong>Precio:</strong> ${producto.precio}€</p>
       <p><strong>Material:</strong> ${producto.material}</p>
-      <p><strong>Ocasión:</strong> ${producto.ocasion}</p>
+      <p><strong>Ocasion:</strong> ${producto.ocasion}</p>
     `
 
     contenedorProductos.appendChild(productoDiv)
