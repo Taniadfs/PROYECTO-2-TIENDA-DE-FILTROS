@@ -73,7 +73,7 @@ const filtros = [
   {
     id: 'material',
     nombre: 'Material',
-    opciones: ['Oro', 'Plata', 'Banado en Oro']
+    opciones: ['Oro', 'Plata', 'Bañado en Oro']
   },
   {
     id: 'ocasion',
@@ -157,10 +157,36 @@ function aplicarFiltros() {
     )
   })
 
-  pintarProductos(productosFiltrados)
+  if (productosFiltrados.length === 0) {
+    console.warn('no se encontraron productos con los filtros seleccionados')
+
+    // Seleccionar 3 productos aleatorios como sugerencias
+    const productosSugeridos = ObtenerProductosAleatorios(3)
+    // Mostrar el mensaje de "Productos sugeridos"
+    const contenedorProductos = document.getElementById('productos-container')
+    contenedorProductos.innerHTML = '<h2> Productos sugeridos</h2>'
+
+    pintarProductos(productosSugeridos)
+  } else {
+    pintarProductos(productosFiltrados)
+  }
   console.log(
-    `Se han encontrado ${productosFiltrados.length} productosFiltrados. `
+    `se han encontrado ${productosFiltrados.length} productos filtrados.`
   )
+}
+
+/*FUNCION PARA OBTENER PRODUCTOS ALEATORIOS*/
+function ObtenerProductosAleatorios(cantidad) {
+  const copiaProductos = [...listaProductos]
+
+  for (let i = copiaProductos.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copiaProductos[i], copiaProductos[j]] = [
+      copiaProductos[j],
+      copiaProductos[i]
+    ]
+  }
+  return copiaProductos.slice(0, cantidad)
 }
 
 /*AQUI FILTRAR POR precio*/
@@ -200,9 +226,9 @@ const listaProductos = [
     id: 3,
     nombre: 'Collar Ova',
     categoria: 'Collares',
-    precio: 90,
-    material: 'Plata',
-    ocasion: 'Especial',
+    precio: 130,
+    material: 'Oro',
+    ocasion: 'Casual',
     imagen: 'assets/IMG_2996.jpg'
   },
   {
@@ -218,9 +244,9 @@ const listaProductos = [
     id: 5,
     nombre: 'Flat ring',
     categoria: 'Anillos',
-    precio: 90,
+    precio: 70,
     material: 'Bañado en Oro',
-    ocasion: 'Casual',
+    ocasion: 'Especial',
     imagen: 'assets/flat.jpg'
   },
 
@@ -246,7 +272,7 @@ const listaProductos = [
     id: 8,
     nombre: 'The ligth ring',
     categoria: 'Anillos',
-    precio: 70,
+    precio: 80,
     material: 'Bañado en Oro',
     ocasion: 'Especial',
     imagen: 'assets/7BAB544C-1C76-4241-80D7-CB719BC79872.JPG'
