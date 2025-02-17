@@ -6,7 +6,7 @@ function iniciarModal() {
 
   // SI NO EXISTE EL BOTÓN, MOSTRAR ERROR Y SALIR
   if (!openModalButton) {
-    console.error("❌ Error: No se encontró el botón con id 'open-modal'")
+    console.error(" No se encontró el botón con id 'open-modal'")
     return
   }
 
@@ -27,13 +27,22 @@ function iniciarModal() {
   // INSERTO EL MODAL EN EL BODY
   document.body.appendChild(modal)
 
+  const applyFiltersButton = document.getElementById('apply-filters')
+
+  if (applyFiltersButton) {
+    applyFiltersButton.addEventListener('click', aplicarFiltros)
+  } else {
+    console.error('error: no se encontro el boton aplicar filtros')
+  }
+
   // OBTENER EL BOTÓN DE CERRAR DENTRO DEL MODAL
   const closeModalButton = modal.querySelector('.close')
 
+  modal.style.display = 'none'
+
   // EVENTO PARA ABRIR EL MODAL AL HACER CLIC EN LA IMAGEN
   openModalButton.addEventListener('click', function () {
-    modal.style.display = 'flex'
-    mostrarFiltros() // Muestra los filtros dentro del modal
+    mostrarFiltros((modal.style.display = 'flex')) // Muestra los filtros dentro del modal
   })
 
   // EVENTO PARA CERRAR EL MODAL AL HACER CLIC EN "X"
@@ -122,6 +131,52 @@ function mostrarFiltros() {
   console.log('✅ Filtros agregados al modal correctamente.')
 }
 
+/*AQUI TENGO QUE PONER LA FUNCION APLICAR filtros*/
+
+function aplicarFiltros() {
+  console.log('aplicando fltros')
+
+  const categoriaSeleccionada = document.getElementById('categoria').value
+  const precioSeleccionado = document.getElementById('precio').value
+  const materialSeleccionado = document.getElementById('material').value
+  const ocasionSeleccionada = document.getElementById('ocasion').value
+
+  console.log(
+    `categoria: ${categoriaSeleccionada}, Precio ${precioSeleccionado}, Material ${materialSeleccionado}, Ocasion ${ocasionSeleccionada}`
+  )
+
+  const productosFiltrados = listaProductos.filter((producto) => {
+    return (
+      (categoriaSeleccionada === '' ||
+        producto.categoria === categoriaSeleccionada) &&
+      (precioSeleccionado === '' ||
+        filtrarPorPrecio(producto.precio, precioSeleccionado)) &&
+      (materialSeleccionado === '' ||
+        producto.material === materialSeleccionado) &&
+      (ocasionSeleccionada === '' || producto.ocasion === ocasionSeleccionada)
+    )
+  })
+
+  pintarProductos(productosFiltrados)
+  console.log(
+    `Se han encontrado ${productosFiltrados.length} productosFiltrados. `
+  )
+}
+
+/*AQUI FILTRAR POR precio*/
+
+function filtrarPorPrecio(precioProducto, precioSeleccionado) {
+  if (precioSeleccionado === 'Menos de 50€') {
+    return precioProducto < 50
+  }
+  if (precioSeleccionado === '50€ - 100€') {
+    return precioProducto >= 50 && precioProducto <= 100
+  }
+  if (precioSeleccionado === 'Mas de 100€') {
+    return precioProducto < 100
+  }
+  return true
+}
 const listaProductos = [
   {
     id: 1,
@@ -204,7 +259,7 @@ function pintarProductos(listaProductos) {
   // ASEGURARSE QUE EL CONTENEDOR EXISTE
   if (!contenedorProductos) {
     console.error(
-      "❌ Error: No se encontró el contenedor de productos ('#productos-container')"
+      "No se encontró el contenedor de productos ('#productos-container')"
     )
     return
   }
