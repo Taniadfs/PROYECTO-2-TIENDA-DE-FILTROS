@@ -1,4 +1,23 @@
-document.addEventListener('DOMContentLoaded', iniciarModal)
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('El DOM ha cargado completamente.')
+
+  const contenedorProductos = document.getElementById('productos-container')
+
+  if (!contenedorProductos) {
+    console.error('Error: No se encontró `#productos-container` en el DOM.')
+  } else {
+    console.log(
+      '`#productos-container` encontrado correctamente:',
+      contenedorProductos
+    )
+  }
+
+  iniciarModal()
+  setTimeout(() => {
+    console.log('Esperando al DOM...')
+    console.log(document.getElementById('open-modal'))
+  }, 3000)
+})
 
 function iniciarModal() {
   // OBTENER LA IMG QUE ABRIRA EL MODAL
@@ -128,7 +147,7 @@ function mostrarFiltros() {
     filtersContainer.appendChild(filterDiv)
   }
 
-  console.log('✅ Filtros agregados al modal correctamente.')
+  console.log(' Filtros agregados al modal correctamente.')
 }
 
 /*AQUI TENGO QUE PONER LA FUNCION APLICAR filtros*/
@@ -144,6 +163,13 @@ function aplicarFiltros() {
   console.log(
     `categoria: ${categoriaSeleccionada}, Precio ${precioSeleccionado}, Material ${materialSeleccionado}, Ocasion ${ocasionSeleccionada}`
   )
+  const contenedorProductos = document.getElementById('productos-container')
+  if (!contenedorProductos) {
+    console.error(
+      'Error: No se encontró el contenedor de productos (`#productos-container`).'
+    )
+    return
+  }
 
   const productosFiltrados = listaProductos.filter((producto) => {
     return (
@@ -156,15 +182,37 @@ function aplicarFiltros() {
       (ocasionSeleccionada === '' || producto.ocasion === ocasionSeleccionada)
     )
   })
+  console.log('🛠 productosFiltrados:', productosFiltrados)
+  console.log('🛠 Número de productos filtrados:', productosFiltrados.length)
 
   if (productosFiltrados.length === 0) {
     console.warn('no se encontraron productos con los filtros seleccionados')
+    contenedorProductos.innerHTML = ''
 
+    //insertar el mensaje de sugerencia antes de agregar los productos
+
+    let mensajeDiv = document.querySelector('.mensaje-sugerencias')
+    console.log('🛠 Buscando mensaje en el DOM:', mensajeDiv)
+
+    if (!mensajeDiv) {
+      console.log('🚀 No existe, creando mensaje nuevo...')
+      mensajeDiv = document.createElement('div')
+      mensajeDiv.classList.add('mensaje-sugerencias')
+    } else {
+      console.log('✅ Mensaje ya existía, solo lo actualizamos.')
+    }
+
+    //insertar el mensaje de sugerencia antes de agregar los productos
+    mensajeDiv.innerHTML = `
+    <h2>
+        No hemos encontrado nada con los filtros seleccionados. 
+        Pero aquí tienes 3 sugerencias
+    </h2>
+`
+    document.getElementById('productos-container').prepend(mensajeDiv)
+    console.log('Mensaje de SUGERENCIA agregado al DOM.')
     // Seleccionar 3 productos aleatorios como sugerencias
     const productosSugeridos = ObtenerProductosAleatorios(3)
-    // Mostrar el mensaje de "Productos sugeridos"
-    const contenedorProductos = document.getElementById('productos-container')
-    contenedorProductos.innerHTML = '<h2> Productos sugeridos</h2>'
 
     pintarProductos(productosSugeridos)
   } else {
@@ -177,8 +225,13 @@ function aplicarFiltros() {
 
 /*FUNCION PARA OBTENER PRODUCTOS ALEATORIOS*/
 function ObtenerProductosAleatorios(cantidad) {
+  if (listaProductos.length === 0) {
+    console.warn('No hay productos en la lista')
+    return []
+  }
   const copiaProductos = [...listaProductos]
 
+  /*Algoritmo fisher-yates para mezclar aleatoriamente el array*/
   for (let i = copiaProductos.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[copiaProductos[i], copiaProductos[j]] = [
@@ -308,8 +361,12 @@ function pintarProductos(listaProductos) {
     contenedorProductos.appendChild(productoDiv)
   })
 
-  console.log('✅ Productos agregados correctamente.')
+  console.log(`${listaProductos.length} productos agregados correctamente.`)
 }
 
 // MOSTRAR LOS PRODUCTOS AL INICIO
 pintarProductos(listaProductos)
+console.log(
+  'Contenido actual de #productos-container:',
+  contenedorProductos.innerHTML
+)

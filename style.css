@@ -250,7 +250,27 @@ body {
   flex-wrap: wrap;
   gap: var(--jm--gap-s);
   justify-content: center;
+  align-items: center;
   margin-top: 20px;
+  padding-top: 20px;
+  min-height: 500px !important; /* Aumentar la altura */
+  position: relative;
+  z-index: 10; /* Asegurar que esté sobre otros elementos */
+}
+
+.mensaje-sugerencias h2 {
+  background-color: #f8d7da; /* Fondo rojo claro */
+  color: #721c24; /* Texto rojo oscuro */
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  z-index: 9999;
+  position: relative;
 }
 
 .producto {
