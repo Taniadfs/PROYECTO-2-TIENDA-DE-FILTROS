@@ -337,6 +337,14 @@ const listaProductos = [
 let contenedorProductos = document.getElementById('productos-container')
 
 function pintarProductos(listaProductos) {
+  // ASEGURARSE QUE EL CONTENEDOR EXISTE
+  if (!contenedorProductos) {
+    console.error(
+      "No se encontró el contenedor de productos ('#productos-container')"
+    )
+    return
+  }
+
   listaProductos.forEach((producto) => {
     const productoDiv = document.createElement('div')
     productoDiv.classList.add('producto')
