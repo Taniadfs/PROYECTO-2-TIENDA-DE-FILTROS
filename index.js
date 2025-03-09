@@ -185,23 +185,23 @@ function aplicarFiltros() {
   console.log('🛠 productosFiltrados:', productosFiltrados)
   console.log('🛠 Número de productos filtrados:', productosFiltrados.length)
 
+  //insertar el mensaje de sugerencia antes de agregar los productos
+
+  let mensajeDiv = document.querySelector('.mensaje-sugerencias')
+  console.log('🛠 Buscando mensaje en el DOM:', mensajeDiv)
+
+  if (!mensajeDiv) {
+    console.log('🚀 No existe, creando mensaje nuevo...')
+    mensajeDiv = document.createElement('div')
+    mensajeDiv.classList.add('mensaje-sugerencias')
+  }
+
   if (productosFiltrados.length === 0) {
     console.warn('no se encontraron productos con los filtros seleccionados')
-    contenedorProductos.innerHTML = ''
 
-    //insertar el mensaje de sugerencia antes de agregar los productos
-
-    let mensajeDiv = document.querySelector('.mensaje-sugerencias')
-    console.log('🛠 Buscando mensaje en el DOM:', mensajeDiv)
-
-    if (!mensajeDiv) {
-      console.log('🚀 No existe, creando mensaje nuevo...')
-      mensajeDiv = document.createElement('div')
-      mensajeDiv.classList.add('mensaje-sugerencias')
-    } else {
-      console.log('✅ Mensaje ya existía, solo lo actualizamos.')
-    }
-
+    contenedorProductos
+      .querySelectorAll('.producto')
+      .forEach((el) => el.remove())
     //insertar el mensaje de sugerencia antes de agregar los productos
     mensajeDiv.innerHTML = `
     <h2>
@@ -209,20 +209,22 @@ function aplicarFiltros() {
         Pero aquí tienes 3 sugerencias
     </h2>
 `
-    document.getElementById('productos-container').prepend(mensajeDiv)
+    contenedorProductos.prepend(mensajeDiv)
     console.log('Mensaje de SUGERENCIA agregado al DOM.')
     // Seleccionar 3 productos aleatorios como sugerencias
     const productosSugeridos = ObtenerProductosAleatorios(3)
 
     pintarProductos(productosSugeridos)
   } else {
+    if (mensajeDiv) {
+      mensajeDiv.remove()
+    }
     pintarProductos(productosFiltrados)
   }
   console.log(
     `se han encontrado ${productosFiltrados.length} productos filtrados.`
   )
 }
-
 /*FUNCION PARA OBTENER PRODUCTOS ALEATORIOS*/
 function ObtenerProductosAleatorios(cantidad) {
   if (listaProductos.length === 0) {
@@ -335,16 +337,6 @@ const listaProductos = [
 let contenedorProductos = document.getElementById('productos-container')
 
 function pintarProductos(listaProductos) {
-  // ASEGURARSE QUE EL CONTENEDOR EXISTE
-  if (!contenedorProductos) {
-    console.error(
-      "No se encontró el contenedor de productos ('#productos-container')"
-    )
-    return
-  }
-
-  contenedorProductos.innerHTML = '' // LIMPIAR CONTENIDO ANTERIOR
-
   listaProductos.forEach((producto) => {
     const productoDiv = document.createElement('div')
     productoDiv.classList.add('producto')
