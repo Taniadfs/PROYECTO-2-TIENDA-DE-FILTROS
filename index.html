@@ -17,21 +17,7 @@
     </style>
   </head>
   <body>
-    <div class="notification-bar">
-      Envios gratis en pedidos <span class="plus">+</span>150<span class="euros"
-        >€</span
-      >
-    </div>
-    <header id="principal_header" class="flex-container common-padding">
-      <div class="search-container">
-        <img
-          src="assets/simbolo-de-la-interfaz-de-busqueda.png"
-          alt="Buscar"
-          class="search-icon"
-        />
-        <input type="text" class="search-input" placeholder="Buscar..." />
-      </div>
-
+    <header id="principal_header" class="flex-container common-container">
       <div class="icon-container">
         <img
           src="assets/filtros.png"
@@ -39,14 +25,6 @@
           alt="abrir-filtros"
           class="filter-icon"
         />
-
-        <a href="https://www.instagram.com/jimmuses/"
-          ><img
-            src="assets/anadir-al-carrito.png"
-            alt="carrito compra"
-            class="icon-cart"
-        /></a>
-        <img src="assets/acceso.png" alt="Iniciar sesion" class="icon-login" />
       </div>
 
       <h1 class="logo">JIMMUSES</h1>
@@ -54,7 +32,7 @@
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
       <label for="menu-toggle" class="hamburger">&#9776;</label>
 
-      <nav class="navbar">
+      <nav class="navbar page-section">
         <ul class="nav-list">
           <li><a href="#">INICIO</a></li>
           <li><a href="#">SHOP</a></li>
@@ -72,9 +50,11 @@
         />
       </figure>
     </header>
-    <div id="productos-container"></div>
+
+    <div id="mensaje-filtros" class="page-section" style="display: none"></div>
+    <div id="container-productos" class="page-section"></div>
     <footer class="footer">
-      <div class="footer__container">
+      <div class="footer__container page-section">
         <div class="footer__section footer__section--contact">
           <h4 class="footer__section-title">Contacto</h4>
           <ul class="footer__list footer__list--contact">
